@@ -1,0 +1,97 @@
+<!-- templates/feedback.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Submission</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container */
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Submit Button */
+button {
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+</style>
+<body>
+    <div class="container">
+        <h2>Submit Your Feedback</h2>
+        <form method="POST" action="/submit_feedback/">
+            {% csrf_token %}
+            <!-- Faculty Selection -->
+            <label for="faculty">Select Faculty:</label>
+            <select id="faculty" name="faculty">
+                <option value="Madhumitha Chanda">Madhumitha Chanda</option>
+                <option value="Roje Spandana">Roje Spandana</option>
+                <option value="Venkateswarulu">Venkateswarulu</option>
+                <option value="Paparao">Paparao</option>
+                <option value="Bindumadhuri">Bindumadhuri</option>
+            </select>
+
+            <!-- Rating Selection -->
+            <label for="rating">Rate (1-5):</label>
+            <select id="rating" name="rating">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+
+            <!-- Comment Section -->
+            <label for="comment">Your Feedback:</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="Write your feedback here..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+</html>
+feedback.html
